@@ -2,7 +2,7 @@ cask "staxide" do
   version "0.1.0"
   sha256 "3d1947407f6c424e0bd90d764971ba6f04c6ab602f31c184301f0b185834f3f8"
 
-  url "https://github.com/vbario/termgrid/releases/download/v#{version}/STAXIDE-#{version}.zip"
+  url "https://github.com/vbario/staxide/releases/download/v#{version}/STAXIDE-#{version}.zip"
   name "STAX IDE"
   desc "Local-only multi-stack terminal IDE"
   homepage "https://staxide.com/"
