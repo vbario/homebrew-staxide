@@ -1,6 +1,6 @@
 cask "staxide" do
-  version "0.3.0"
-  sha256 "bd7cf1bf6937c3d8db4022f7586b31466b3659033190a476a0fe34abcc324b9a"
+  version "0.4.0"
+  sha256 "38981afe2eb58bfb5098b7b556a8e8a938099456ddc138aa1b03354b447a29e0"
 
   url "https://github.com/vbario/staxide/releases/download/v#{version}/STAXIDE-#{version}.dmg"
   name "STAX IDE"
