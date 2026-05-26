@@ -1,8 +1,8 @@
 cask "staxide" do
   version "0.1.1"
-  sha256 "13ba1779d4fd6ec5a27c5b41675572d0864f5983378790be25ba67c82f96a03b"
+  sha256 "ed45f8ec5299118dceeab27537e1fda824a905dba2fd17b97d6a325b2d69f582"
 
-  url "https://github.com/vbario/staxide/releases/download/v#{version}/STAXIDE-#{version}.zip"
+  url "https://github.com/vbario/staxide/releases/download/v#{version}/STAXIDE-#{version}.dmg"
   name "STAX IDE"
   desc "Local-only multi-stack terminal IDE"
   homepage "https://staxide.com/"
