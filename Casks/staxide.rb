@@ -1,6 +1,6 @@
 cask "staxide" do
-  version "0.4.31"
-  sha256 "e7e1e98650d1a19f5fa8ca6541ede96fbdc1c8d976e841a11cc068f48e5ae697"
+  version "0.4.32"
+  sha256 "854b0c46164634f36c03bf329f89b862373201ecc36148a0e7e473fd1795d7a5"
 
   url "https://github.com/vbario/staxide/releases/download/v#{version}/STAXIDE-#{version}.dmg"
   name "STAX IDE"
@@ -27,6 +27,20 @@ cask "staxide" do
   EOS
 
   app "STAXIDE.app", target: "STAX IDE.app"
+
+  # Fire-and-forget install ping so staxide.com/stats can count cask installs
+  # alongside website downloads and in-app updates. Anonymous: only the version
+  # is sent. Run via `sh -c "... &"` so curl is backgrounded and fully silenced
+  # (capped at 5s) — a network hiccup can never fail or slow the install.
+  postflight do
+    system_command "/bin/sh",
+                   args: ["-c",
+                          "curl -fsS -m 5 " \
+                          "-H 'Content-Type: application/json' " \
+                          "--data '{\"version\":\"#{version}\",\"source\":\"cask\"}' " \
+                          "-X POST https://staxide.com/api/track-download " \
+                          ">/dev/null 2>&1 &"]
+  end
 
   zap trash: [
     "~/.termgrid",
