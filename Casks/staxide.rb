@@ -1,6 +1,6 @@
 cask "staxide" do
-  version "0.5.19"
-  sha256 "308f7bd4a471832e9cbf3c7a53680f200dd3593c40bb2e0bf81ef46c8843de42"
+  version "0.6.0"
+  sha256 "132c6c65b7d9dbf4b46dd9b51f703cd4e7731f478d01523ec087c3922c8fc517"
 
   url "https://github.com/vbario/staxide/releases/download/v#{version}/STAXIDE-#{version}.dmg"
   name "STAX IDE"
@@ -12,19 +12,8 @@ cask "staxide" do
     strategy :github_latest
   end
 
-  # First-launch note: the .app is ad-hoc signed (no Apple Developer ID
-  # yet), so macOS Gatekeeper will block the first open. Tell the user
-  # to right-click → Open the first time, or strip the quarantine xattr.
-  # Once we notarize, this caveat goes away.
-  caveats <<~EOS
-    The build is not yet notarized. On first launch macOS may say the
-    developer cannot be verified — right-click STAX IDE in
-    /Applications and choose Open, then click Open in the dialog.
-    A subsequent double-click works normally.
-
-    Or, from the terminal:
-      xattr -dr com.apple.quarantine "/Applications/STAX IDE.app"
-  EOS
+  # As of 0.6.0 the app and DMG are Developer ID-signed and Apple-notarized,
+  # so Gatekeeper accepts them on first launch — no caveat needed.
 
   app "STAXIDE.app", target: "STAX IDE.app"
 
